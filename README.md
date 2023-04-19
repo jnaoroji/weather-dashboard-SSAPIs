@@ -100,3 +100,46 @@ You are required to submit BOTH of the following for review:
 
 - - -
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+# 04 Web APIs: Jenny's Code Quiz
+
+## Description
+My Challenge invites me to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code written by me. It will have a clean, polished, and responsive user interface. 
+I want to build a timed quiz on JavaScript fundamentals that stores high scores.
+
+
+
+## Usage
+
+To play the quiz, click the Start Quiz Button!
+
+You can get there by clicking this link to the deployed site: https://jnaoroji.github.io/WebAPIs-Code-QuizJN/
+
+## Screenshot
+
+The following image shows my web application's appearance and functionality:
+
+![The Code Quiz application displays a blue button to "Start Quiz".](assets/screenshot.png)
+
+## Credits
+
+* https://developer.mozilla.org
+* This gif was used as the predominant guideline for this quiz.
+* ![This Gif was used as the predominant guideline for this quiz.](assets/04-web-apis-homework-demo.gif)
+* index template:
+/Users/jennynaoroji/bootcamp/bootcamp-repo/UADEL-VIRT-FSF-PT-03-2023-U-LOLC/06-Server-Side-APIs/01-Activities/21-Ins_Review-Part-One/index.html
+* css template:
+/Users/jennynaoroji/bootcamp/bootcamp-repo/UADEL-VIRT-FSF-PT-03-2023-U-LOLC/06-Server-Side-APIs/01-Activities/21-Ins_Review-Part-One/assets/css/style.css
+*java template:
+/Users/jennynaoroji/bootcamp/bootcamp-repo/UADEL-VIRT-FSF-PT-03-2023-U-LOLC/06-Server-Side-APIs/01-Activities/21-Ins_Review-Part-One/assets/js/homepage.js
+
+
+
+## License
+
+Please refer to the LICENSE in the repo.
+
+
+
+
+

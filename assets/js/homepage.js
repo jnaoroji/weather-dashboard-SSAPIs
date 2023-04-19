@@ -1,21 +1,28 @@
+var APIKey = '33f5de6f25a252daa041266e6c88b503';
+var city;
+var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+
+
+
 var userFormEl = document.querySelector('#user-form');
 var languageButtonsEl = document.querySelector('#language-buttons');
-var nameInputEl = document.querySelector('#username');
+var cityInputEl = document.querySelector('#city');
 var repoContainerEl = document.querySelector('#repos-container');
 var repoSearchTerm = document.querySelector('#repo-search-term');
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
-  var username = nameInputEl.value.trim();
+  var city = cityInputEl.value.trim();
+  console.log("city is: " + city);
 
-  if (username) {
-    getUserRepos(username);
+  if (city) {
+    getCityRepo(city);
 
     repoContainerEl.textContent = '';
-    nameInputEl.value = '';
+    cityInputEl.value = '';
   } else {
-    alert('Please enter a GitHub username');
+    alert('Please enter a valid city');
   }
 };
 
@@ -29,21 +36,23 @@ var buttonClickHandler = function (event) {
   }
 };
 
-var getUserRepos = function (user) {
-  var apiUrl = 'https://api.github.com/users/' + user + '/repos';
-
+var getCityRepo = function (city) {
+  var apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?q='+(city)+'&appid='+(APIKey);
+  
   fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          displayRepos(data, user);
+          console.log(data, city);
+          displayRepos(data, city);
+          
         });
       } else {
         alert('Error: ' + response.statusText);
       }
     })
     .catch(function (error) {
-      alert('Unable to connect to GitHub');
+      alert('Unable to connect to Open Weather');
     });
 };
 
