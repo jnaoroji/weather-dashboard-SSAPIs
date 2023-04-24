@@ -107,3 +107,28 @@ var displayRepos = function (repos, searchTerm) {
 
 userFormEl.addEventListener('submit', formSubmitHandler);
 languageButtonsEl.addEventListener('click', buttonClickHandler);
+
+// var temperature = data[i].list[0].main.temp;
+// tempHead = weatherContainerEl.createElement('h3');
+// tempHead.textContent = temperature;
+// weatherContainerEl.appendChild(tempHead);
+
+
+
+// var cityName = data[i].city.name;
+// console.log("city name: "+ cityName);
+// var condition = data[i].list[0];
+// console.log("condition: " +condition);
+
+
+
+
+// var mainEl = weatherContainerEl.createElement('div');
+// var titleEl = weatherContainerEl.createElement('span');
+// titleEl.textContent = cityName;
+
+
+// // mainEl.classList = 'list-item flex-row justify-space-between align-center';
+// weatherContainerEl.textContent = ('Weather for: ' + city);
+// weatherContainerEl.appendChild(mainEl);
+// mainEl.appendChild(titleEl);

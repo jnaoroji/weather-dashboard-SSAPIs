@@ -111,11 +111,21 @@ p {
   justify-content: center;
   border-radius: var(--border-radius);
   box-shadow: 6px 5px var(--light-dark);
-}
-
+} 
+/* .weather-card{
+  justify-self: center;
+  margin: 5px;
+  padding: 5px;
+} */
 .list-group {
-  padding: 0;
+  background-color: rgba(173, 216, 230, 0.3);
+  margin: 5px;
+  padding: 5px;
+  border-radius: var(--border-radius);
   list-style: none;
+  color: var(--dark);
+ 
+  
 }
 
 .list-item {
