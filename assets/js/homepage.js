@@ -1,28 +1,21 @@
-var APIKey = '33f5de6f25a252daa041266e6c88b503';
-var city;
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-
-
-
 var userFormEl = document.querySelector('#user-form');
 var languageButtonsEl = document.querySelector('#language-buttons');
-var cityInputEl = document.querySelector('#city');
+var nameInputEl = document.querySelector('#username');
 var repoContainerEl = document.querySelector('#repos-container');
 var repoSearchTerm = document.querySelector('#repo-search-term');
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
-  var city = cityInputEl.value.trim();
-  console.log("city is: " + city);
+  var username = nameInputEl.value.trim();
 
-  if (city) {
-    getCityRepo(city);
+  if (username) {
+    getUserRepos(username);
 
     repoContainerEl.textContent = '';
-    cityInputEl.value = '';
+    nameInputEl.value = '';
   } else {
-    alert('Please enter a valid city');
+    alert('Please enter a GitHub username');
   }
 };
 
@@ -36,23 +29,21 @@ var buttonClickHandler = function (event) {
   }
 };
 
-var getCityRepo = function (city) {
-  var apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?q='+(city)+'&appid='+(APIKey);
-  
+var getUserRepos = function (user) {
+  var apiUrl = 'https://api.github.com/users/' + user + '/repos';
+
   fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          console.log(data, city);
-          displayRepos(data, city);
-          
+          displayRepos(data, user);
         });
       } else {
         alert('Error: ' + response.statusText);
       }
     })
     .catch(function (error) {
-      alert('Unable to connect to Open Weather');
+      alert('Unable to connect to GitHub');
     });
 };
 
@@ -108,27 +99,3 @@ var displayRepos = function (repos, searchTerm) {
 userFormEl.addEventListener('submit', formSubmitHandler);
 languageButtonsEl.addEventListener('click', buttonClickHandler);
 
-// var temperature = data[i].list[0].main.temp;
-// tempHead = weatherContainerEl.createElement('h3');
-// tempHead.textContent = temperature;
-// weatherContainerEl.appendChild(tempHead);
-
-
-
-// var cityName = data[i].city.name;
-// console.log("city name: "+ cityName);
-// var condition = data[i].list[0];
-// console.log("condition: " +condition);
-
-
-
-
-// var mainEl = weatherContainerEl.createElement('div');
-// var titleEl = weatherContainerEl.createElement('span');
-// titleEl.textContent = cityName;
-
-
-// // mainEl.classList = 'list-item flex-row justify-space-between align-center';
-// weatherContainerEl.textContent = ('Weather for: ' + city);
-// weatherContainerEl.appendChild(mainEl);
-// mainEl.appendChild(titleEl);
