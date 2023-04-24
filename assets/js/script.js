@@ -64,7 +64,7 @@ var formSubmitHandler = function (event) {
       var desc = dayData.weather[0].description;
       var temp = dayData.main.temp;
       var humidity = dayData.main.humidity;
-      var windSpeed = (dayData.wind.speed)* 1.6093440006147;
+      var windSpeed = (dayData.wind.speed)* 3.6;
       var roundedWindSpeed = windSpeed.toFixed(1);
   
       var weatherCardEl = document.createElement('div');
