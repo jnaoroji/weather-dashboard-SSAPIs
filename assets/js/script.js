@@ -12,10 +12,10 @@ var formSubmitHandler = function (event) {
   event.preventDefault();
 
   var city = cityInputEl.value.trim();
-  console.log("city is: " + city);
+  
 
   if (city) {
-    getCityRepo(city);
+    getCityInfo(city);
 
     weatherContainerEl.textContent = '';
     cityInputEl.value = '';
@@ -24,7 +24,7 @@ var formSubmitHandler = function (event) {
   }
 };
 
-  var getCityRepo = function (city) {
+  var getCityInfo = function (city) {
     var apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?q='+(city)+'&appid='+(APIKey)+'&units=metric';
     
     fetch(apiUrl)
@@ -39,12 +39,12 @@ var formSubmitHandler = function (event) {
           alert('Error: ' + response.statusText);
         }
       })
-      .catch(function (error) {
+      .catch(function () {
         alert('Unable to connect to Open Weather');
       });
   };
 
-  var displayWeather = function (data, city) {
+  var displayWeather = function (data) {
     if (data.length === 0) {
       weatherContainerEl.textContent = 'This city was not found.';
       return;
@@ -64,7 +64,8 @@ var formSubmitHandler = function (event) {
       var desc = dayData.weather[0].description;
       var temp = dayData.main.temp;
       var humidity = dayData.main.humidity;
-      var windSpeed = dayData.wind.speed;
+      var windSpeed = (dayData.wind.speed)* 1.6093440006147;
+      var roundedWindSpeed = windSpeed.toFixed(1);
   
       var weatherCardEl = document.createElement('div');
       weatherCardEl.classList.add('weather-card');
@@ -94,7 +95,7 @@ var formSubmitHandler = function (event) {
   
       var windEl = document.createElement('p');
       windEl.classList.add('weather-item');
-      windEl.innerHTML = 'Wind Speed: ' + windSpeed + ' km/ph';
+      windEl.innerHTML = 'Wind Speed: ' + roundedWindSpeed + ' km/ph';
   
       weatherCardEl.appendChild(dateEl);
       weatherCardEl.appendChild(iconEl);
