@@ -2,7 +2,6 @@
 var APIKey = '33f5de6f25a252daa041266e6c88b503';
 var cityInputEl = document.querySelector('#city');
 var userFormEl = document.querySelector('#user-form');
-var weatherContainerEl = document.querySelector('#weather-container');
 var citySearch = document.querySelector('#search-current');
 var futureSearch = document.querySelector('#search-future');
 var currentWeatherEl = document.querySelector('#current-weather');
@@ -10,7 +9,9 @@ var futureWeatherEl = document.querySelector('#future-weather');
 
 var searchHistoryEl = document.querySelector('#search-history');
 var searchHistory = [];
+var cityName;
 
+var historyBtn;
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
@@ -25,8 +26,6 @@ var formSubmitHandler = function (event) {
     console.log("search history= " + searchHistory);
     displaySearchHistory();
     
-
-    weatherContainerEl.textContent = '';
     cityInputEl.value = '';
 
   } else {
@@ -57,7 +56,7 @@ var getCityInfo = function (city) {
 
 var displayWeather = function (data) {
   if (data.length === 0) {
-      weatherContainerEl.textContent = 'This city was not found.';
+      currentWeatherEl.textContent = 'This city was not found.';
       return;
   }
   
@@ -65,7 +64,7 @@ var displayWeather = function (data) {
   citySearch.textContent = cityName;
 
 
-  weatherContainerEl.innerHTML = '';
+ 
   
   for (var i = 0; i < data.list.length; i++) {
 
@@ -187,12 +186,35 @@ function displaySearchHistory() {
   for (var i = 0; i < searchHistory.length; i++) {
     var city = searchHistory[i];
 
-    var historyBtn = document.createElement('button');
-    historyBtn.classList.add('btn', 'btn-secondary', 'search-history-item');
+    historyBtn = document.createElement('button');
+    historyBtn.classList.add('btn','search-history-item');
     historyBtn.textContent = city;
     
     searchHistoryEl.appendChild(historyBtn);
   }
 }
 
+
+var BtnHistoryHandler = function (event) {
+  event.preventDefault();
+  
+  var target = event.target;
+  if (target.matches('button')) {
+  var city = target.textContent.trim();
+
+  getCityInfo(city);
+  
+  
+  displaySearchHistory();
+  
+  cityInputEl.value = '';
+
+  } else {
+  alert('Please enter a valid city');
+  }
+   
+}
+
   userFormEl.addEventListener('submit', formSubmitHandler);
+  searchHistoryEl.addEventListener('click', BtnHistoryHandler);
+  
