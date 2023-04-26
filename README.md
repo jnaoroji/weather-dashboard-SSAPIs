@@ -101,38 +101,41 @@ You are required to submit BOTH of the following for review:
 - - -
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
 
-# 04 Web APIs: Jenny's Code Quiz
+# 06 Server-Side APIs: Jenny's Weather Dashboard
 
 ## Description
-My Challenge invites me to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code written by me. It will have a clean, polished, and responsive user interface. 
-I want to build a timed quiz on JavaScript fundamentals that stores high scores.
 
-
+Using the Third - party API Open Weather Map i will retrieve a 5 day forecast using the parameter of a city. The weather dashboard will run in the browser and feature dynamically updated HTML and CSS.
+Local storage will store persistent city searches.
 
 ## Usage
 
-To play the quiz, click the Start Quiz Button!
+The user (a traveller) will use a form input to search for a city's weather forecast.
+when they search for the city current and future conditions for that city will be displayed.
+This city search will also dynamically be updated into the search history so the user can also click on the search history to display weather data instead of using the form input.
 
-You can get there by clicking this link to the deployed site: https://jnaoroji.github.io/WebAPIs-Code-QuizJN/
+To use the weather dashboard click on this link to the deployed site:
+https://jnaoroji.github.io/WebAPIs-Code-QuizJN/
 
 ## Screenshot
 
 The following image shows my web application's appearance and functionality:
 
-![The Code Quiz application displays a blue button to "Start Quiz".](assets/screenshot.png)
+* ![The Weather Dashboard application used a form input to search for a city's current and future weather forecast.](assets/weatherscreenshot.png)
 
 ## Credits
 
 * https://developer.mozilla.org
+* https://openweathermap.org/forecast5
+* https://openweathermap.org/forecast5#geocoding
 * This gif was used as the predominant guideline for this quiz.
-* ![This Gif was used as the predominant guideline for this quiz.](assets/04-web-apis-homework-demo.gif)
+* ![This Gif was used as the predominant guideline for this quiz.](assets/06-server-side-apis-homework-demo.png)
 * index template:
 /Users/jennynaoroji/bootcamp/bootcamp-repo/UADEL-VIRT-FSF-PT-03-2023-U-LOLC/06-Server-Side-APIs/01-Activities/21-Ins_Review-Part-One/index.html
 * css template:
 /Users/jennynaoroji/bootcamp/bootcamp-repo/UADEL-VIRT-FSF-PT-03-2023-U-LOLC/06-Server-Side-APIs/01-Activities/21-Ins_Review-Part-One/assets/css/style.css
-*java template:
+* javaScript template:
 /Users/jennynaoroji/bootcamp/bootcamp-repo/UADEL-VIRT-FSF-PT-03-2023-U-LOLC/06-Server-Side-APIs/01-Activities/21-Ins_Review-Part-One/assets/js/homepage.js
-
 
 
 ## License
