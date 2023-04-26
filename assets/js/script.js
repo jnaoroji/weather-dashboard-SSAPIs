@@ -13,6 +13,12 @@ var cityName;
 
 var historyBtn;
 
+
+if (localStorage.getItem('searchHistory')) {
+  searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
+  displaySearchHistory();
+}
+
 var formSubmitHandler = function (event) {
   event.preventDefault();
   currentWeatherEl.innerHTML = '';
@@ -23,6 +29,7 @@ var formSubmitHandler = function (event) {
   if (city) {
     getCityInfo(city);
     searchHistory.push(city);
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
     console.log("search history= " + searchHistory);
     displaySearchHistory();
     
@@ -202,6 +209,8 @@ var BtnHistoryHandler = function (event) {
   if (target.matches('button')) {
   var city = target.textContent.trim();
 
+  currentWeatherEl.innerHTML = '';
+  futureWeatherEl.innerHTML = '';
   getCityInfo(city);
   
   

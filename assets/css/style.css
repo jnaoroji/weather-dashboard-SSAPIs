@@ -113,14 +113,12 @@ p {
   box-shadow: 6px 5px var(--light-dark);
 } 
 
-/* #current-weather{
-  display: flex;
-  flex-direction:column;
-  border-radius: var(--border-radius);
+.day{
+  
   margin: 20px;
   padding: 10px;
  
-} */
+}
 
 #future-weather{
   display: flex;
@@ -132,8 +130,9 @@ p {
 }
 .list-group {
   background-color: rgba(173, 216, 230, 0.3);
-  margin: 5px;
-  padding: 5px;
+  margin: 20px;
+  padding: 10px;
+  border: 2px;
   border-radius: var(--border-radius);
   list-style: none;
   color: var(--dark);
