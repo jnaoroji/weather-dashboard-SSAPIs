@@ -41,7 +41,7 @@ var formSubmitHandler = function (event) {
 };
 //uses open weather api to get city 5 day forecast
 var getCityInfo = function (city) {
-  var apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?q='+(city)+'&appid='+(APIKey)+'&units=metric';
+  var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q='+(city)+'&appid='+(APIKey)+'&units=metric';
     
   fetch(apiUrl)
     .then(function (response) {
