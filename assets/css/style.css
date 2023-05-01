@@ -1,3 +1,4 @@
+/* decalres colour palate */
 :root {
   --primary: #ccdad1;
   --secondary: #9caea9;
@@ -6,11 +7,10 @@
   --dark: #38302e;
   --border-radius: 0.3rem;
 }
-
 * {
   box-sizing: border-box;
 }
-
+/* body styling */
 body {
   
   margin: 0;
@@ -24,7 +24,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-
+/* styling for all headers */
 h1,
 h2,
 h3,
@@ -36,16 +36,16 @@ h6 {
   color: var(--dark);
   line-height: 1.25;
 }
-
+/* styling for main */
 main {
   margin: 20px auto;
   width: 94%;
 }
-
+/* styling for all p elements */
 p {
   font-size: 1.2rem;
 }
-
+/* styling for all button elements */
 .btn {
   font-size: 1.3rem;
   text-decoration: none;
@@ -101,7 +101,7 @@ p {
   color: var(--primary);
   
 }
-
+/* styling for title */
 .app-title {
   font-size: 2rem;
   background-color: var(--primary);
@@ -112,14 +112,14 @@ p {
   border-radius: var(--border-radius);
   box-shadow: 6px 5px var(--light-dark);
 } 
-
+/* styling for class .day */
 .day{
   
   margin: 20px;
   padding: 10px;
  
 }
-
+/* styling for future weather div */
 #future-weather{
   display: flex;
   flex-direction: row;
@@ -128,6 +128,7 @@ p {
   padding: 10px;
   
 }
+/* styling for list groups */
 .list-group {
   background-color: rgba(173, 216, 230, 0.3);
   margin: 20px;
@@ -139,7 +140,7 @@ p {
   
   
 }
-
+/* styling for list items */
 .list-item {
   margin-bottom: 10px;
   padding: 1.5%;
