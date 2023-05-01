@@ -1,4 +1,4 @@
-
+//declare all variables
 var APIKey = '33f5de6f25a252daa041266e6c88b503';
 var cityInputEl = document.querySelector('#city');
 var userFormEl = document.querySelector('#user-form');
@@ -6,24 +6,24 @@ var citySearch = document.querySelector('#search-current');
 var futureSearch = document.querySelector('#search-future');
 var currentWeatherEl = document.querySelector('#current-weather');
 var futureWeatherEl = document.querySelector('#future-weather');
-
+// declare search history string and variables
 var searchHistoryEl = document.querySelector('#search-history');
 var searchHistory = [];
 var cityName;
 
 var historyBtn;
 
-
+//on load, checks for persistant data
 if (localStorage.getItem('searchHistory')) {
   searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
   displaySearchHistory();
 }
-
+//click event triggers form
 var formSubmitHandler = function (event) {
   event.preventDefault();
   currentWeatherEl.innerHTML = '';
   futureWeatherEl.innerHTML = '';
-
+// uses form input to define search term and city for open weather API
   var city = cityInputEl.value.trim();
   
   if (city) {
@@ -39,7 +39,7 @@ var formSubmitHandler = function (event) {
     alert('Please enter a valid city');
   }
 };
-
+//uses open weather api to get city 5 day forecast
 var getCityInfo = function (city) {
   var apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?q='+(city)+'&appid='+(APIKey)+'&units=metric';
     
@@ -60,7 +60,7 @@ var getCityInfo = function (city) {
         alert('Unable to connect to Open Weather');
       });
 };
-
+//displays current weather forecast 
 var displayWeather = function (data) {
   if (data.length === 0) {
       currentWeatherEl.textContent = 'This city was not found.';
@@ -70,9 +70,6 @@ var displayWeather = function (data) {
   var cityName = data.city.name;
   citySearch.textContent = cityName;
 
-
- 
-  
   for (var i = 0; i < data.list.length; i++) {
 
     var dayData = data.list[0];
@@ -127,6 +124,8 @@ var displayWeather = function (data) {
   
 };
 
+//displays future 5 day weather forecast at 6AM, 
+//12PM means some cities are missing on the fifth day due to time zones
 var displayFuture = function (data) {
   
   var cityName = data.city.name;
@@ -185,9 +184,8 @@ var displayFuture = function (data) {
 
   }
 };
-
+//displays weather forecast for each of the search history buttons
 function displaySearchHistory() {
-  // var searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
   searchHistoryEl.innerHTML = '';
 
   for (var i = 0; i < searchHistory.length; i++) {
@@ -201,7 +199,7 @@ function displaySearchHistory() {
   }
 }
 
-
+// uses each history button as a trigger to display weather forecast
 var BtnHistoryHandler = function (event) {
   event.preventDefault();
   
@@ -223,7 +221,8 @@ var BtnHistoryHandler = function (event) {
   }
    
 }
-
-  userFormEl.addEventListener('submit', formSubmitHandler);
-  searchHistoryEl.addEventListener('click', BtnHistoryHandler);
+//form input to search a city's weather forecast
+userFormEl.addEventListener('submit', formSubmitHandler);
+// button click to search a city's weather forecast based on search history
+searchHistoryEl.addEventListener('click', BtnHistoryHandler);
   
